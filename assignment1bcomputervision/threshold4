@@ -1,0 +1,25 @@
+function [ coordinates,newR ] = threshold4(R, t )
+%UNTITLED2 Summary of this function goes here
+%   Detailed explanation goes here
+[r,c]=size(R);
+%[r,c]= max(R);
+newR = zeros(r,c);
+coordinates =0;
+count = 1;
+for i=1:r
+    for j = 1:c
+if R(i,j)<t
+    R(i,j)=0;
+end
+if R(i,j)>t
+  if count ==1 
+   % coordinates = [i j];
+    count = count + 1;
+  else
+     % coordinates = vertcat(coordinates, [i j]);
+  end
+  newR(i,j) = (R(i,j));
+end
+    end
+end
+end
